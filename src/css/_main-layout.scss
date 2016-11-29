@@ -59,6 +59,7 @@
     bottom: 30px;
 
     & .results-container {
+      user-select: none;
       margin-right: -17px;
     }
 

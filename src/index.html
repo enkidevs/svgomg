@@ -10,10 +10,6 @@
         location.protocol = 'https:';
       }
 
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-58850134-1', 'auto');
-      ga('send', 'pageview');
-
       window.version = "{{changelog[0].version}}";
     </script>
     <link rel="manifest" href="manifest.json">
@@ -88,6 +84,11 @@
             <input type="radio" name="output" value="code">
             <span class="selected"></span>
             Code
+          </label>
+          <label class="material-tab">
+            <input type="radio" name="output" value="enki_code">
+            <span class="selected"></span>
+            Enki Image Code
           </label>
         </form>
       </div>
@@ -194,8 +195,7 @@
           });
 
           [
-            'js/page.js',
-            '//www.google-analytics.com/analytics.js'
+            'js/page.js'
           ].forEach(function(url) {
             var script = document.createElement('script');
             script.src = url;
