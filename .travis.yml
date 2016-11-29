@@ -1,18 +1,3 @@
-# For more information about the configurations used
-# in this file, please see the Travis CI documentation:
-# http://docs.travis-ci.com
-
-after_success:
-  - $(npm bin)/update-branch --commands "npm install && npm run build"
-                             --commit-message "Hey GitHub, this content is for you! [skip ci]"
-                             --directory "build"
-                             --distribution-branch "gh-pages"
-                             --source-branch "master"
-
-env:
-  global:
-    - secure: "gPiB1ALzxwXPAMTZn/WtVQk+VikUozMcqldqmR+eIHUrIAZT55ViMAAnT1gHpI1dNjtMEb78cltp9WRZ+rpfcOTo3M6KFd0MvrYDymIbYnEdhj2d4SYQEgKGU/zpLTEMHWoJaayQDSNL7AUEjrTwS9z49S5Y+vIiyX3F/KCa6W27lvQhMGNZQhL+usihVhdcLyKL7R7ep681YiUpZFjZj4BgozGyNcnVuPus1LqtzvG0dWjP7TtjFQwSIGt2exiLnoEKE2siNhRVn/Wi6FleJenNAJy4DXqkRSRmfTrWz41pwcz35Z2fy/pQyTuZu59WoNv6vayMPKLxPfIvTPdzL9LVGh8n81ir7hpS7jHRXEFJaXNIMHD3tgKX5m5a5/dYu1eri5N3kU2QzUf67rkEj/Ox4RFmSyZjCROZoy/7asDbijJZFBFHtYQCgFFs0sVgn0rlBp59qkpxd5mjd8kGNfviMHMMfW7Kel7us4blHzvuatmh4YPj6npYVJJEFzKYUQya8TZR4PBDJtNrnA3fYTkXQEjBcH0wbtYmbQN1QW+jxze2J103ieWsRDAFZDjVpn+ulHN/9cHooOjP582BoUBfjgKX5s94BSl92ljh5iHsjO97Lew6DLPgg/VXa7vJ4938zVyzH/iHbiUq4PeRe0rOFKY40nhJ7/+7paupWf0="
-
 git:
   depth: 10
 

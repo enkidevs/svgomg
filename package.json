@@ -34,6 +34,7 @@
     "build": "gulp build --production",
     "serve": "gulp serve",
     "serve-no-sw": "gulp serve --disable-sw",
-    "test": "gulp build --production"
+    "test": "gulp build --production",
+    "deploy": "npm run build && cd ./build && git init && git commit --allow-empty -m ':rocket: deploy' && git checkout -b gh-pages && git add . && git commit --allow-empty -m ':rocket: deploy' && git push https://github.com/enkidevs/svgomg gh-pages --force"
   }
 }
