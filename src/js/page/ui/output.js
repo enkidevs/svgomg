@@ -9,7 +9,8 @@ class Output {
     this._types = {
       image: new (require('./svg-output')),
       code: new (require('./code-output')),
-      enki_code: new (require('./enki-code-output'))
+      enki_code: new (require('./enki-code-output')),
+      enki_topic_code: new (require('./enki-topic-code-output'))
     };
 
     this._svgFile = null;

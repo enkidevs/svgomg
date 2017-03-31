@@ -139,6 +139,14 @@
     {
       "id": "transformsWithOnePath",
       "name": "Optimise single-path SVG"
+    },
+    {
+      "id": "removeXMLNS",
+      "name": "Remove XMLNS attribute"
+    },
+    {
+      "id": "removeStyleElement",
+      "name": "Remove <style> elements"
     }
   ]
 }

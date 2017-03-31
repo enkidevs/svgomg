@@ -1,5 +1,4 @@
 var utils = require('../utils');
-var prism = new (require('../prism'));
 
 class CodeOutput {
   constructor() {

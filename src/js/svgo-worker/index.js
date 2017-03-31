@@ -1,7 +1,7 @@
 "use strict";
 require('regenerator-runtime/runtime');
 
-()=>{ // hack around weird regenerator-runtime polyfill
+(()=>{ // hack around weird regenerator-runtime polyfill
 var svg2js = require('svgo/lib/svgo/svg2js');
 var JsApi = require('svgo/lib/svgo/jsAPI');
 var js2svg = require('svgo/lib/svgo/js2svg');
@@ -13,6 +13,7 @@ var pluginsData = {
   removeXMLProcInst: require('svgo/plugins/removeXMLProcInst'),
   removeComments: require('svgo/plugins/removeComments'),
   removeMetadata: require('svgo/plugins/removeMetadata'),
+	removeXMLNS: require('svgo/plugins/removeXMLNS'),
   removeEditorsNSData: require('svgo/plugins/removeEditorsNSData'),
   cleanupAttrs: require('svgo/plugins/cleanupAttrs'),
   convertStyleToAttrs: require('svgo/plugins/convertStyleToAttrs'),
@@ -43,7 +44,8 @@ var pluginsData = {
   sortAttrs: require('svgo/plugins/sortAttrs'),
   removeTitle: require('svgo/plugins/removeTitle'),
   removeDesc: require('svgo/plugins/removeDesc'),
-  removeDimensions: require('svgo/plugins/removeDimensions')
+  removeDimensions: require('svgo/plugins/removeDimensions'),
+  removeStyleElement: require('svgo/plugins/removeStyleElement')
 };
 
 function optimizePluginsArray(plugins) {
@@ -175,4 +177,4 @@ self.onmessage = function(event) {
     });
   }
 };
-}();
+})();

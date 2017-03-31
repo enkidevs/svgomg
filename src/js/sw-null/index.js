@@ -4,7 +4,7 @@ var storage = require('../utils/storage');
 
 // remove caches, remove active-version
 self.addEventListener('install', function(event) {
-  event.waitUntil(async _ => {
+  event.waitUntil((async function (_) {
     if (self.skipWaiting) {
       self.skipWaiting();
     }
@@ -18,5 +18,5 @@ self.addEventListener('install', function(event) {
       if (!/^svgomg-/.test(cacheName)) continue;
       await caches.delete(cacheName);
     }
-  }());
+  })());
 });

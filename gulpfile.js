@@ -10,7 +10,7 @@ var watchify = require('watchify');
 var browserify = require('browserify');
 var uglifyify = require('uglifyify');
 var babelify = require("babelify");
-var assign = require('lodash/object/assign');
+var assign = require('object-assign');
 var runSequence = require('run-sequence');  // Temporary solution until Gulp 4
                                             // https://github.com/gulpjs/gulp/issues/355
 
@@ -20,18 +20,17 @@ var reload = browserSync.reload;
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
 
-gulp.task('clean', function (done) {
-  require('del')(['build'], done);
+gulp.task('clean', function () {
+  return require('del')(['build']);
 });
 
 var pageData;
-gulp.task('get-page-data', function(done) {
+gulp.task('get-page-data', function() {
   pageData = JSON.parse(fs.readFileSync("./src/config.json"));
   pageData.changelog = JSON.parse(fs.readFileSync("./src/changelog.json"));
-  pageData.plugins.forEach(function(plugin) {
+	pageData.plugins.forEach(function(plugin) {
     plugin.active = require('svgo/plugins/' + plugin.id).active;
   });
-  done();
 });
 
 gulp.task('css', function () {
@@ -96,7 +95,7 @@ function createBundle(src) {
   }
 
   b.transform(babelify.configure({
-    stage: 1
+    presets: ['es2015', 'stage-1']
   }));
 
   if (plugins.util.env.production) {
@@ -172,12 +171,12 @@ gulp.task('watch', function() {
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
 
-gulp.task('build', function (done) {
-  runSequence('clean', ['copy', 'html', 'js', 'css'], done);
+gulp.task('build', function () {
+  return runSequence('clean', ['copy', 'html', 'js', 'css']);
 });
 
 gulp.task('default', ['build']);
 
-gulp.task('serve', function (done) {
-  runSequence( 'build', ['browser-sync', 'watch'], done);
+gulp.task('serve', function () {
+  return runSequence( 'build', ['browser-sync', 'watch']);
 });
