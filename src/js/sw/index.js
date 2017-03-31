@@ -13,7 +13,7 @@ var version = require('../../changelog.json')[0].version;
 var cacheVerion = version.split('.')[0];
 
 self.addEventListener('install', function(event) {
-  event.waitUntil(async _ => {
+  event.waitUntil((async function () {
     var activeVersionPromise = storage.get('active-version');
     var cache = await caches.open('svgomg-static-' + cacheVerion);
     await cache.addAll([
@@ -33,7 +33,7 @@ self.addEventListener('install', function(event) {
     if (!activeVersion || activeVersion.split('.')[0] === version.split('.')[0]) {
       self.skipWaiting();
     }
-  }());
+  })());
 });
 
 var expectedCaches = [
