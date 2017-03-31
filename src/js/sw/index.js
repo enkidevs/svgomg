@@ -41,7 +41,7 @@ var expectedCaches = [
 ];
 
 self.addEventListener('activate', function(event) {
-  event.waitUntil(async _ => {
+  event.waitUntil((async function () {
     // remove caches beginning "svgomg-" that aren't in
     // expectedCaches
     var cacheNames = await caches.keys();
@@ -53,7 +53,7 @@ self.addEventListener('activate', function(event) {
     }
 
     await storage.set('active-version', version);
-  }());
+  })());
 });
 
 async function handleFontRequest(request) {
