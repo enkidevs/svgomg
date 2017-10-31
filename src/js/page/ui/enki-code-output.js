@@ -12,7 +12,8 @@ class CodeOutput {
 
   async setSvg(svgFile) {
     console.log(svgFile)
-    this._codeEl.innerHTML = '![alt description](' + encodeURIComponent(svgFile.text) + ')';
+    this._codeEl.innerHTML = '![alt description](' + encodeURIComponent(svgFile.text).replace(/\(/g, '%28')
+      .replace(/\)/g, '%29') + ')';
   }
 
   reset() {
