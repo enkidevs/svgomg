@@ -23,7 +23,7 @@ class CopyButton {
 
   _onClick(event) {
     this._pre.textContent = '![alt description](' + encodeURIComponent(this._svgFile.text).replace(/\(/g, '%28')
-      .replace(/\)/g, '%29').replace('svg%20height', 'svg%20width%3D%22100%25%22%20height') + ')';
+      .replace(/\)/g, '%29') + ')';
     document.body.appendChild(this._pre);
     getSelection().removeAllRanges();
     var range = document.createRange();
